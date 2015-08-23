@@ -3,7 +3,7 @@
 ## get: returns the matrix
 ## setInverse: Set the inverse matrix to be cached
 ## getInverse: Returns the chached matrix
-## Example of how to run it: makeCacheMatrix(runif(n^2),n)
+## Example of how to run it: makeCacheMatrix(matrix(runif(n^2),n))
 makeCacheMatrix <- function(x = matrix()) {
     inverse <- NULL
    
@@ -26,8 +26,10 @@ makeCacheMatrix <- function(x = matrix()) {
 ## if it does, then  returns the cached inverse matrix, otherwise it  calculates 
 ## the  inverse matrix and cached it in the special matrix.
 ## Example of how to run it:
-## mt <- makeCacheMatrix(runif(n^2),n)
+## m  <- matrix(runif(n^2),n)
+## mt <- makeCacheMatrix(m)
 ## ch <- cacheSolve(mt)
+## To check, solve(m) should be the equal to cacheSolve(mt)
 cacheSolve <- function(x, ...) {
     ## Return a matrix that is the inverse of 'x'
     inverse <- x$getInverse()
